@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture Controlled Car Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://www.topgear.com/sites/default/files/images/news-article/2019/09/8b9981f2be8ad1d2c90af3dfb83e4f74/02_ss300p_3i4_front.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #f6e5cf;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            padding: 20px;
+            flex-direction: row;
+        }
+        .box {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            margin: 20px;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #047944;
+        }
+        .status, .controls {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #181616;
+            color: #ca8d1b;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+        }
+        button:hover {
+            background-color: #0011ff;
+        }
+        .current-status-box {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+            max-height: fit-content;
+            text-align: center;
+        }
+        iframe {
+            max-width: 100%;
+        }
+        .heading {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 2px;
+            background: -webkit-linear-gradient(#25079a, #781bd0);
+            -webkit-text-fill-color: solid;
+            -webkit-background-clip: text; /* Clip text to background */
+            text-transform: capitalize;
+            letter-spacing: 1.5px;
+            animation: glowing 15s infinite alternate;
+        }
+        @keyframes glowing {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00b3c7, 0 0 40px #ff00b3c7, 0 0 50px #ff00b3c7, 0 0 60px #ff00b3c7, 0 0 70px #ff00b3c7;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff00dd9a, 0 0 40px #ff00dd9e, 0 0 50px #ff00de, 0 0 60px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de;
+            }
+        }
+        header {
+            width: 100%;
+            background-color: #5618daba;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+            border-bottom: 2px solid #fff;
+            box-shadow: 0 10px 25px rgb(0, 0, 0);
+            position: relative;
+        }
+        nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+        nav ul li a:hover {
+            color: #ff0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="test_dash.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="logout.html">Log Out</a></li>
+            </ul>
+        </nav>
+        <h1 class="heading">Gesture-Controlled Car Dashboard</h1>
+    </header>
+    <div class="container">
+        <div class="box">
+            <h2>Ultrasonic Sensor Data</h2>
+            <iframe src="thingspeak link"></iframe>
+        </div>
+        <div class="box">
+            <h2>Direction Status:</h2>
+            <div class="status">
+                <p id="status-message">Waiting for connection...</p>
+            </div>
+            <h2>Controls:</h2>
+            <div class="controls">
+                <button id="forward-btn">Forward</button>
+                <button id="left-btn">Left</button>
+                <button id="stop-btn">Stop</button>
+                <button id="right-btn">Right</button>
+                <button id="backward-btn">Backward</button>
+            </div>
+        </div>
+        <div class="box">
+            <h2>Robot Status</h2>
+            <div class="current-status-box" id="robot-status">
+                <p id="robot-status-message">Stopped</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateDirectionStatusFromThingSpeak(direction) {
+            clearHighlightedButtons();
+            highlightButton(direction + '-btn');
+            updateStatus("Direction updated from ThingSpeak: " + direction);
+            updateRobotStatus(direction);
+        }
+
+        function handleUserDirection(direction) {
+            updateDirectionStatusFromUser(direction);
+            updateRobotStatus(direction);
+        }
+
+        function updateDirectionStatusFromUser(direction) {
+            clearHighlightedButtons();
+            highlightButton(direction + '-btn');
+            updateStatus("Direction updated from user: " + direction);
+        }
+
+        function clearHighlightedButtons() {
+            document.querySelectorAll('.controls button').forEach(button => {
+                button.style.backgroundColor = "#181616";
+            });
+        }
+
+        function highlightButton(id) {
+            document.getElementById(id).style.backgroundColor = "#0011ff";
+        }
+
+        function updateStatus(message) {
+            document.getElementById('status-message').textContent = message;
+        }
+
+        function updateRobotStatus(direction) {
+            let statusMessage = (direction === 'stop') ? "Stopped" : "Moving";
+            document.getElementById('robot-status-message').textContent = statusMessage;
+        }
+
+        setTimeout(() => {
+            updateStatus("Ready for operation.");
+        }, 2000);
+
+        // Mocking direction status update from ThingSpeak
+        setTimeout(() => {
+            var directionFromThingSpeak = "forward"; // Example direction received from ThingSpeak
+            updateDirectionStatusFromThingSpeak(directionFromThingSpeak);
+        }, 3000);
+               
+
+        // Event listeners for user interaction
+        document.getElementById('forward-btn').addEventListener('click', function() {
+            handleUserDirection('forward');
+        });
+
+        document.getElementById('left-btn').addEventListener('click', function() {
+            handleUserDirection('left');
+        });
+
+        document.getElementById('stop-btn').addEventListener('click', function() {
+            handleUserDirection('stop');
+        });
+
+        document.getElementById('right-btn').addEventListener('click', function() {
+            handleUserDirection('right');
+        });
+
+        document.getElementById('backward-btn').addEventListener('click', function() {
+            handleUserDirection('backward');
+        });
+
+    </script>
+</body>
+</html>

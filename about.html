@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Gesture-Based Movable Bot</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #d9e4f5, #f5f5f5); /* Background gradient */
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #3700ff; /* Header background color */
+            color: #ffffff;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .main-content h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .main-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .main-content ul, .main-content ol {
+            text-align: left;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .main-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #3700ff;
+            margin-bottom: 20px;
+        }
+        .section-content {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Thank You Section Styling */
+        .thank-you-section {
+            margin-top: 50px;
+        }
+
+        /* Dropdown Styling */
+        .dropdown-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .dropdown-container select {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #3700ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-container select:hover {
+            background-color: #2200cc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gesture-Controlled Movable Bot (Group-13)</h1>
+    </header>
+
+    <div class="container">
+        <div class="dropdown-container">
+            <select onchange="location = this.value;">
+                <option value="#">Menu</option>
+                <option value="test_dash.html">Home</option>
+                <option value="logout.html">Log out</option>
+            </select>
+        </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Introduction</h2>
+                <p class="section-content">Advancements in sensor technology and microcontrollers have paved the way for innovative solutions in robotics and human-computer interaction. Our project leverages these advancements to create a user-friendly interface for controlling robotic vehicles. By integrating gesture recognition and obstacle detection technologies, our system enables intuitive control and safe navigation. This has broad applications, including aiding individuals with disabilities, enhancing entertainment experiences, and facilitating operations in military, medical, and educational settings.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Problem Statement</h2>
+                <p class="section-content">Traditional control interfaces for robotic systems often lack accessibility and intuitiveness, especially in scenarios involving obstacle navigation. This limits their usability for individuals with physical disabilities and those unfamiliar with technical interfaces. To address this, our project aims to develop a gesture-based movable car model with obstacle detection capabilities, providing an intuitive control interface and real-time obstacle avoidance.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">About the Project</h2>
+                <p class="section-content">Our project aims to develop a gesture-based movable car model equipped with obstacle detection capabilities. The car will be controlled using hand gestures, allowing users to intuitively navigate it through its environment. With the integration of sensors and microcontrollers, the car will be capable of detecting obstacles in its path.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Project Objectives</h2>
+                <ol class="section-content">
+                    <li>Refinement of Gesture Recognition System: Develop a robust gesture recognition system using the MPU6050 accelerometer/gyroscope to interpret a wide range of hand movements and gestures accurately. This involves refining algorithms to distinguish between various gestures effectively, ensuring seamless interaction between the user and the car.</li>
+                    <li>Enhancement of Obstacle Detection System: Optimize the integration of the HC-SR04 ultrasonic sensor to enhance the car's ability to detect and respond to obstacles in real-time. This includes fine-tuning sensor parameters, such as detection range and sensitivity, to improve the overall performance and reliability of obstacle detection.</li>
+                    <li>Motor Control Mechanism Optimization: Implement advanced motor control mechanisms utilizing the ESP32 microcontroller and L293D motor driver to achieve smooth, precise, and responsive movement of the car. This involves optimizing motor control algorithms to ensure efficient power management, minimize latency, and enhance maneuverability in various environmental conditions.</li>
+                </ol>
+            </div>
+        <div class="callout">
+            <h2>Problem Statement</h2>
+            <p>Traditional control interfaces for robotic systems often lack accessibility and intuitiveness, especially in scenarios involving obstacle navigation. This limits their usability for individuals with physical disabilities and those unfamiliar with technical interfaces. To address this, our project aims to develop a gesture-based movable car model with obstacle detection capabilities, providing an intuitive control interface and real-time obstacle avoidance.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <h2>About the Project</h2>
+            <p>Our project aims to develop a gesture-based movable car model equipped with obstacle detection capabilities. The car will be controlled using hand gestures, allowing users to intuitively navigate it through its environment. With the integration of sensors and microcontrollers, the car will be capable of detecting obstacles in its path.</p>
+        </div>
+        
+        <div class="callout">
+            <h2>Project Objectives</h2>
+            <ol>
+                <li>Refinement of Gesture Recognition System: Develop a robust gesture recognition system using the MPU6050 accelerometer/gyroscope to interpret a wide range of hand movements and gestures accurately. This involves refining algorithms to distinguish between various gestures effectively, ensuring seamless interaction between the user and the car.</li>
+                <li>Enhancement of Obstacle Detection System: Optimize the integration of the HC-SR04 ultrasonic sensor to enhance the car's ability to detect and respond to obstacles in real-time. This includes fine-tuning sensor parameters, such as detection range and sensitivity, to improve the overall performance and reliability of obstacle detection.</li>
+                <li>Motor Control Mechanism Optimization: Implement advanced motor control mechanisms utilizing the ESP32 microcontroller and L293D motor driver to achieve smooth, precise, and responsive movement of the car. This involves optimizing motor control algorithms to ensure efficient power management, minimize latency, and enhance maneuverability in various environmental conditions.</li>
+            </ol>
+        </div>
+        
+        <div class="highlight-box">
+            <h2>Requirements</h2>
+            <ul>
+                <li>Gesture Sensors: The gesture sensors play a pivotal role in enabling intuitive control of the car model. These sensors detect hand gestures and translate them into commands, allowing users to navigate the car through its environment effortlessly.</li>
+                <li>Ultrasonic Sensor: An ultrasonic sensor is essential for real-time obstacle detection and avoidance. By continuously scanning the surroundings, the sensor detects obstacles in the car's path and triggers appropriate actions to maneuver around them, ensuring safe navigation.</li>
+                <li>Motor System: The motor system provides the mechanical power necessary for the car to move in different directions. By controlling the rotation of the motors, the car can move forward, backward, turn left, and turn right, responding to user commands and environmental conditions.</li>
+                <li>Microcontroller/Processor: The microcontroller or processor unit serves as the brain of the car model, processing signals from the gesture sensors and other input devices. By analyzing these signals, the microcontroller generates commands for the motor system, orchestrating the car's movements based on user inputs and environmental feedback.</li>
+                <li>Power Source: A reliable power source, such as a battery or power supply, is essential to provide energy for the operation of the car model. This power source ensures continuous functionality during operation, allowing the car to navigate its environment effectively and autonomously.</li>
+            </ul>
+        </div>
+        
+        <div class="callout">
+            <h2>Applications</h2>
+            <ul>
+                <li>Physically Disabled People Navigation Assistance: Our gesture-based movable car model offers a revolutionary solution for individuals with physical disabilities, providing them with an accessible and intuitive means of navigating their surroundings independently.</li>
+                <li>Entertainment Settings: In entertainment settings, such as video games and virtual reality simulations, our car model adds a new dimension of interaction, allowing users to immerse themselves in dynamic and engaging experiences through gesture-based control.</li>
+                <li>Military Applications: The car's capabilities hold significant potential for military applications, enabling remote operation in diverse terrains and environments, reconnaissance missions, and obstacle avoidance in hazardous situations.</li>
+                <li>Medical Applications: In medical settings, such as surgery assistance, our gesture-based car model can be utilized to transport medical equipment and supplies in operating rooms, reducing the need for physical contact and minimizing the risk of contamination.</li>
+                <li>Educational Technology: Our project contributes to educational technology by providing an interactive learning experience that promotes hands-on exploration and experimentation. Students can learn about robotics, sensor integration, and gesture recognition technology in a practical and engaging manner, fostering creativity and innovation in STEM education.</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <h2>Hardware Used</h2>
+            <ul>
+            <li>Gear Motors: High-torque gear motors are employed to drive the car's movement efficiently, providing sufficient power to navigate various terrains and obstacles with ease.</li>
+            <li>Chassis: The chassis serves as the structural framework of the car, providing support for mounting components and ensuring stability during operation.</li>
+            <li>Wheels: Durable wheels are essential for smooth and stable movement, allowing the car to traverse different surfaces effectively while maintaining traction.</li>
+            <li>Clamps: Clamps are utilized for securing components such as the motor driver, sensors, and microcontroller to the chassis, ensuring a tidy and organized assembly.</li>
+            <li>L293D Motor Driver: The L293D motor driver facilitates the control of the gear motors, regulating their speed and direction based on input signals from the microcontroller, thereby enabling precise and responsive movement.</li>
+            <li>ESP Wi-Fi Module: An ESP Wi-Fi module is used to provide wireless communication capabilities, allowing for remote control and data transmission between the car and external devices.</li>
+            <li>MPU-6050 Module: The MPU-6050 module incorporates an accelerometer and gyroscope, enabling accurate detection and interpretation of hand gestures for intuitive control of the car.</li>
+            <li>RF Transmitter Module: The RF transmitter module is employed for wireless communication between the car and the user interface, transmitting control signals from the hand gestures to the car.</li>
+            <li>RF Receiver Module: The RF receiver module receives control signals transmitted by the user interface, allowing for seamless communication and remote control of the car.</li>
+            <li>Ultrasonic Range Sensor HC-SR04 Sensor Module: The HC-SR04 sensor module is utilized for obstacle detection, emitting ultrasonic pulses and measuring the time taken for the pulses to return after bouncing off obstacles, thus enabling the car to detect and avoid obstacles in its path.</li>
+            <li>Batteries: Rechargeable batteries provide the necessary power to drive the motors and operate the electronic components, ensuring uninterrupted functionality of the car during operation.</li>
+            <li>DC Jack: The DC jack serves as the interface for connecting external power sources to recharge the batteries or power the car during operation.</li>
+            <li>Wires: Various wires are used for connecting and routing electrical signals between components, ensuring proper communication and functionality of the car's electronic system.</li>
+        </ul>
+        </div>
+        
+        <div class="thank-you-section">
+            <h1>Thank You!</h1>
+        </div>
+    </div>
+</body>
+</html>
